@@ -32,17 +32,13 @@ function getDetails(itemName) {
 
 // 处理服务器响应
 function displayDetails() {
-	try {
-		if (httpRequest.readyState === 4) {
-			if (httpRequest.status === 200) {
-				// 显示信息介绍
-				let detailDiv = document.getElementById("descripton");
-				detailDiv.innerHTML = httpRequest.responseText;
-			} else {
-				alert("There was a problem with the request.");
-			}
+	if (httpRequest.readyState === 4) {
+		if (httpRequest.status === 200) {
+			// 显示信息介绍
+			let detailDiv = document.getElementById("descripton");
+			detailDiv.innerHTML = httpRequest.responseText;
+		} else {
+			alert("There was a problem with the request.");
 		}
-	} catch (e) {
-		alert("Caught Exception: " + e.description);
 	}
 }
